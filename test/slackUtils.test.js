@@ -79,7 +79,7 @@ describe('slackUtils', () => {
             requests: { total: 4, pending: 0, failed: 0 },
           }
           test('should return jsonfile', () => {
-              const result = slackUtils.slackMessage(mockStats, mockTimings, mockFail);
+              const result = slackUtils.slackMessage("*Test Summary*", mockStats, mockTimings, mockFail);
               const duration = prettyms(mockTimings.completed - mockTimings.started)
               expect(result).toContain(`{"type":"mrkdwn","text":"Total Tests:"},{"type":"mrkdwn","text":"4"}`);
               expect(result).toContain(`{"type":"mrkdwn","text":"Test Passed:"},{"type":"mrkdwn","text":"2"}`);
