@@ -1,4 +1,4 @@
-# newman-reporter-slackmsg-withtitle
+# newman-reporter-slackmsgwithtitle
 
 Custom [Newman](https://github.com/postmanlabs/newman) reporter to send message to [Slack](https://slack.com/)
 
