@@ -3,7 +3,7 @@ const axios = require('axios').default;
 var jsonminify = require("jsonminify");
 
 // creates message for slack
-function slackMessage(stats, timings, failures) {
+function slackMessage(title, stats, timings, failures) {
     let parsedFailures = parseFailures(failures);
     let failureMessage = `
     "attachments": [
@@ -40,7 +40,7 @@ function slackMessage(stats, timings, failures) {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "*Test Summary*"
+                    "text": "${title}"
                 }
             },
             {
