@@ -40,7 +40,7 @@ function slackMessage(title, stats, timings, failures, hyperlink) {
                 "type": "section",
                 "text": {
                     "type": "mrkdwn",
-                    "text": "${title}"
+                    "text": "*${title}*"
                 }
             },
             {
