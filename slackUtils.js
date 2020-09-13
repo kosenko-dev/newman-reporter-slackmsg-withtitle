@@ -10,7 +10,7 @@ function slackMessage(title, stats, timings, failures) {
         {
             "mrkdwn_in": ["text"],
             "color": "#FF0000",
-            "author_name": "Newman Tests",
+            "author_name": "Имеются проблемы",
             "title": ":fire: Failures :fire:",
             "fields": [
                 ${failMessage(parsedFailures)}
@@ -25,7 +25,7 @@ function slackMessage(title, stats, timings, failures) {
             "mrkdwn_in": ["text"],
             "color": "#008000",
             "author_name": "Newman Tests",
-            "title": ":white_check_mark: All Passed :white_check_mark:",
+            "title": ":white_check_mark: Успешно :white_check_mark:",
             "footer": "Smoke Test",
             "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
         }
@@ -48,7 +48,7 @@ function slackMessage(title, stats, timings, failures) {
                 "fields": [
                     {
                         "type": "mrkdwn",
-                        "text": "Total Tests:"
+                        "text": "Тестов всего:"
                     },
                     {
                         "type": "mrkdwn",
@@ -56,7 +56,7 @@ function slackMessage(title, stats, timings, failures) {
                     },
                     {
                         "type": "mrkdwn",
-                        "text": "Test Passed:"
+                        "text": "Тестов пройдено:"
                     },
                     {
                         "type": "mrkdwn",
@@ -64,7 +64,7 @@ function slackMessage(title, stats, timings, failures) {
                     },
                     {
                         "type": "mrkdwn",
-                        "text": "Test Failed:"
+                        "text": "Тестов провалено:"
                     },
                     {
                         "type": "mrkdwn",
@@ -72,7 +72,7 @@ function slackMessage(title, stats, timings, failures) {
                     },
                     {
                         "type": "mrkdwn",
-                        "text": "Test Duration:"
+                        "text": "Время прохождения:"
                     },
                     {
                         "type": "mrkdwn",
