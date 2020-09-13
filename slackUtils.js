@@ -3,19 +3,19 @@ const axios = require('axios').default;
 var jsonminify = require("jsonminify");
 
 // creates message for slack
-function slackMessage(title, stats, timings, failures) {
+function slackMessage(title, stats, timings, failures, hyperlink) {
     let parsedFailures = parseFailures(failures);
     let failureMessage = `
     "attachments": [
         {
             "mrkdwn_in": ["text"],
             "color": "#FF0000",
-            "author_name": "Имеются проблемы",
-            "title": ":fire: Failures :fire:",
+            "author_name": "Отчет",
+            "title": ":fire: Ошибки",
             "fields": [
                 ${failMessage(parsedFailures)}
             ],
-            "footer": "Smoke Test",
+            "footer": "${hyperlink}",
             "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
         }
     ]`
@@ -24,9 +24,9 @@ function slackMessage(title, stats, timings, failures) {
         {
             "mrkdwn_in": ["text"],
             "color": "#008000",
-            "author_name": "Newman Tests",
-            "title": ":white_check_mark: Успешно :white_check_mark:",
-            "footer": "Smoke Test",
+            "author_name": "Отчет",
+            "title": ":white_check_mark: Успешно",
+            "footer": "${hyperlink}",
             "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
         }
     ]`
@@ -48,11 +48,7 @@ function slackMessage(title, stats, timings, failures) {
                 "fields": [
                     {
                         "type": "mrkdwn",
-                        "text": "Тестов всего:"
-                    },
-                    {
-                        "type": "mrkdwn",
-                        "text": "${stats.requests.total}"
+                        "text": "Тестов всего:\t${stats.requests.total}"
                     },
                     {
                         "type": "mrkdwn",
