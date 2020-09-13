@@ -6,7 +6,7 @@ function SlackNewmanReporter(emitter, reporterOptions) {
     if (missingReporterOptions(reporterOptions)) {
         return;
     }
-    const webhookUrl = reporterOptions.webhookurl;
+    const webhookUrl = process.env.SLACK_WEBHOOK_URL || reporterOptions.webhookurl;
     const title = process.env.TITLE || reporterOptions.title;
     emitter.on('done', (error, summary) => {
         if (error) {
