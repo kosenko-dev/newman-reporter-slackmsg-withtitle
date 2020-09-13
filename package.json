@@ -1,6 +1,6 @@
 {
-  "name": "newman-reporter-slackmsg",
-  "version": "1.1.1",
+  "name": "newman-reporter-slackmsg-withtitle",
+  "version": "1.1.2",
   "description": "newman report to slack",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jackcoded/newman-reporter-slackmsg/"
+    "url": "https://github.com/jackcoded/newman-reporter-slackmsg-withtitle/"
   },
   "keywords": [
     "newman",
@@ -21,9 +21,9 @@
   "author": "Jack Chaw",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jackcoded/newman-reporter-slackmsg/issues"
+    "url": "https://github.com/kosenko-dev/newman-reporter-slackmsg-withtitle/issues"
   },
-  "homepage": "https://github.com/jackcoded/newman-reporter-slackmsg#readme",
+  "homepage": "https://github.com/kosenko-dev/newman-reporter-slackmsg-withtitle#readme",
   "dependencies": {
     "@types/node": "^14.0.13",
     "axios": "^0.19.2",
