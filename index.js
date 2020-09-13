@@ -7,6 +7,7 @@ function SlackNewmanReporter(emitter, reporterOptions) {
         return;
     }
     const webhookUrl = process.env.SLACK_WEBHOOK_URL || reporterOptions.webhookurl;
+    const hyperlink = process.env.HYPERLINK || reporterOptions.hyperlink;
     const title = process.env.TITLE || reporterOptions.title;
     emitter.on('done', (error, summary) => {
         if (error) {
@@ -14,7 +15,7 @@ function SlackNewmanReporter(emitter, reporterOptions) {
             return;
         }
         let run = summary.run;
-        slackUtils.send(webhookUrl, slackUtils.slackMessage(title, run.stats, run.timings, run.failures));
+        slackUtils.send(webhookUrl, slackUtils.slackMessage(title, run.stats, run.timings, run.failures, hyperlink));
     });
     
     function missingReporterOptions(reporterOptions) {
