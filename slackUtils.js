@@ -11,10 +11,7 @@ function slackMessage(title, stats, timings, failures, hyperlink) {
             "mrkdwn_in": ["text"],
             "color": "#FF0000",
             "author_name": "Отчет",
-            "title": ":fire: Ошибки",
-            "fields": [
-                ${failMessage(parsedFailures)}
-            ],
+            "title": ":fire: Имеются непройденные тесты",
             "footer": "${hyperlink}",
             "footer_icon": "https://raw.githubusercontent.com/JetBrains/logos/master/web/teamcity/teamcity_16.png",
         }
