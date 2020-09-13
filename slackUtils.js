@@ -16,7 +16,7 @@ function slackMessage(title, stats, timings, failures, hyperlink) {
                 ${failMessage(parsedFailures)}
             ],
             "footer": "${hyperlink}",
-            "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
+            "footer_icon": "https://raw.githubusercontent.com/JetBrains/logos/master/web/teamcity/teamcity_16.png",
         }
     ]`
     let successMessage = `
@@ -27,7 +27,7 @@ function slackMessage(title, stats, timings, failures, hyperlink) {
             "author_name": "Отчет",
             "title": ":white_check_mark: Успешно",
             "footer": "${hyperlink}",
-            "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
+            "footer_icon": "https://raw.githubusercontent.com/JetBrains/logos/master/web/teamcity/teamcity_16.png",
         }
     ]`
     return jsonminify(`
@@ -52,27 +52,15 @@ function slackMessage(title, stats, timings, failures, hyperlink) {
                     },
                     {
                         "type": "mrkdwn",
-                        "text": "Тестов пройдено:"
+                        "text": "Тестов пройдено:\t${stats.requests.total - parsedFailures.length}"
                     },
                     {
                         "type": "mrkdwn",
-                        "text": "${stats.requests.total - parsedFailures.length}"
+                        "text": "Тестов провалено:\t${parsedFailures.length}"
                     },
                     {
                         "type": "mrkdwn",
-                        "text": "Тестов провалено:"
-                    },
-                    {
-                        "type": "mrkdwn",
-                        "text": "${parsedFailures.length}"
-                    },
-                    {
-                        "type": "mrkdwn",
-                        "text": "Время прохождения:"
-                    },
-                    {
-                        "type": "mrkdwn",
-                        "text": "${prettyms(timings.completed - timings.started)}"
+                        "text": "Время прохождения:\t${prettyms(timings.completed - timings.started)}"
                     },
                 ],
             },
